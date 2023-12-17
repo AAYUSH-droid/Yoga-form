@@ -16,7 +16,7 @@ model User {
   last_name      String
   age            Int
   email          String      @unique
-  contact_number String?
+  contact_number String?     @unique
   gender         Gender
   batch          Batch       @relation(fields: [batch_id], references: [batch_id])
   batch_id       Int
