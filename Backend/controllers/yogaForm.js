@@ -5,6 +5,7 @@ sgMail.setApiKey(process.env.SENDMAIL_API_KEY);
 
 // Create a new user and associated payment
 async function createUser(req, res) {
+  // console.log('Request Payload:', req.body);
   try {
     const {
       first_name,
