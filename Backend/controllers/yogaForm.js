@@ -53,6 +53,7 @@ async function createUser(req, res) {
       to: email,
       from: 'shaishav.mahaseth@acumensa.co',
       subject: 'Admission Confirmation',
+      //https://yoga-app-be.onrender.com
       html: `<p>Dear ${first_name},</p><p>Click the following link to confirm your admission:</p><a href="http://localhost:8000/confirm/${user.user_id}">Confirm Admission</a>`,
     };
 
