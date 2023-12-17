@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id        Int         @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  age            Int
+  email          String      @unique
+  contact_number String?
+  gender         Gender
+  batch          Batch       @relation(fields: [batch_id], references: [batch_id])
+  batch_id       Int
+  Payment        Payment[]
+  admission      Admission[]
+}
+
+model Batch {
+  batch_id  Int         @id //fixed
+  time      Session
+  users     User[]
+  admission Admission[]
+}
+
+model Payment {
+  payment_id         Int         @id @default(autoincrement())
+  user               User        @relation(fields: [user_id], references: [user_id])
+  user_id            Int
+  amount             Int
+  date               DateTime    @default(now())
+  payment_successful Boolean
+  admission          Admission[]
+}
+
+model Admission {
+  admission_id Int     @id @default(autoincrement())
+  payment      Payment @relation(fields: [payment_id], references: [payment_id])
+  payment_id   Int
+  user         User    @relation(fields: [user_id], references: [user_id])
+  user_id      Int
+  batch        Batch   @relation(fields: [batch_id], references: [batch_id])
+  batch_id     Int
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum Session {
+  M1
+  M2
+  M3
+  E
+}
