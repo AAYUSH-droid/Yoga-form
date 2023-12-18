@@ -109,6 +109,16 @@ This project operates under the following assumptions:
 2. **Email Notification:** Upon successful registration, it is assumed that an email notification is sent to the user's provided email address. The email is assumed to contain relevant details and a payment confirmation link. The email sending functionality is implemented using SendGrid.
 
 
+## Data Stored in Postgres Database:
+
+1. **User Table** 
+<img width="1182" alt="Screenshot 2023-12-18 at 4 13 42 PM" src="https://github.com/AAYUSH-droid/Yoga-form/assets/76835619/c4fe24b5-7407-4270-8015-3ef18879e505">
+
+2. **Payment Table**
+<img width="1190" alt="Screenshot 2023-12-18 at 4 14 39 PM" src="https://github.com/AAYUSH-droid/Yoga-form/assets/76835619/ab7dcb6f-ac19-4f28-88c9-64d5aa07231a">
+
+3. **Batch Table**
+<img width="627" alt="Screenshot 2023-12-18 at 4 15 08 PM" src="https://github.com/AAYUSH-droid/Yoga-form/assets/76835619/dda4a1fa-8c43-43ad-85ac-26c92961b92b">
 
 
 
