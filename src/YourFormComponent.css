@@ -1,8 +1,31 @@
 .your-form-container {
   max-width: 400px;
   margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd; /* Border color */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px;
 }
 
+.form-heading {
+  text-align: center;
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+.form-description {
+  text-align: center;
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+.registered-user-button {
+  display: block;
+  margin: 20px auto; /* Adjust margin as needed */
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #3498db; /* Choose your button color */
+  color: #fff; /* Choose your text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .form-group {
   margin-bottom: 15px;
 }
@@ -23,8 +46,12 @@ select {
 
 button {
   background-color: #4caf50;
-  color: white;
-  padding: 10px;
+  display: block;
+  margin: 20px auto; /* Adjust margin as needed */
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #fff; /* Choose your text color */
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }

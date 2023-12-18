@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './YourFormComponent.css';
+import { Link } from 'react-router-dom';
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 const YourFormComponent = () => {
   const [formData, setFormData] = useState({
@@ -41,17 +43,21 @@ const YourFormComponent = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:8000/api/v1/createUser', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          amount: 500,
-          payment_successful: true,
-        }),
-      });
+      const response = await fetch(
+        // 'https://yoga-app-be.onrender.com/api/v1/createUser',
+        `${backendURL}/createUser`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            amount: 500,
+            payment_successful: true,
+          }),
+        }
+      );
 
       if (response.ok) {
         alert(
@@ -68,6 +74,22 @@ const YourFormComponent = () => {
 
   return (
     <form onSubmit={handleSubmit} className='your-form-container'>
+      <h1 className='form-heading'>Yoga Admission Form</h1>
+      <p className='form-description'>
+        Please enter the details below and you will receive the payment link on
+        your email id once you click on submit.
+      </p>
+      <p className='form-description'>Charges: Rs 500/month</p>
+
+      <button
+        id='update'
+        type='button'
+        class='registered-user-button'
+        onclick="parent.location='updateform.html'"
+      >
+        <Link to='/update-details'>Click Here If already Registered!</Link>
+      </button>
+
       <div className='form-group'>
         <label htmlFor='first_name'>First Name:</label>
         <input
